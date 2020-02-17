@@ -1,0 +1,29 @@
+<h1>Game score</h1>
+<p>Hey bro, ur score is:</p>
+<% if @api %>
+  <% if @answer.each do |letter| %>
+    <% count_answer_letter = @answer.count(letter) %>
+    <% count_letters_letter = @letters.count(letter) %>
+    <% if count_answer_letter <= count_letters_letter %>
+      <% return true %>
+    <% else %>
+      <% return false %>
+    <% end %>
+  <% end %>
+    <% return "Congratulations! #{@answer}is a valid word" %>
+  <% end %>
+<% elsif @api %>
+  <% if @answer.each do |letter| %>
+    <% count_answer_letter = @answer.count(letter) %>
+    <% count_letters_letter = @letters.count(letter) %>
+    <% if count_answer_letter <= count_letters_letter %>
+      <% return true %>
+    <% else %>
+      <% return false %>
+    <% end %>
+  <% end %>
+   <% return "Sorry but #{@answer} doesn't seem to be an English word" %>
+  <% end %>
+<% else %>
+  <% return "Sorry but #{@answer} can't be build of #{@letters}" %>
+<% end %>
